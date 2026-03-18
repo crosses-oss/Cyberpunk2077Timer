@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Endless Timer</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+    }
+    #timer {
+      font-size: 4rem;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="timer">00:00:00</div>
+
+<script>
+  let seconds = 0;
+
+  function updateTimer() {
+    seconds++;
+
+    let hrs = Math.floor(seconds / 3600);
+    let mins = Math.floor((seconds % 3600) / 60);
+    let secs = seconds % 60;
+
+    document.getElementById("timer").textContent =
+      String(hrs).padStart(2, '0') + ":" +
+      String(mins).padStart(2, '0') + ":" +
+      String(secs).padStart(2, '0');
+  }
+
+  setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
